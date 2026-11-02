@@ -75,3 +75,7 @@ The recording bar is excluded from capture with `SetWindowDisplayAffinity(WDA_EX
 - This project does not use Bandicam's proprietary DLLs. It uses ffmpeg and the same underlying GPU encoder drivers.
 - CPU HEVC encoding is significantly slower than hardware encoding.
 - Region selection, webcam overlays, and pause/resume are not implemented yet.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
