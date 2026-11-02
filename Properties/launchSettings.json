@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FreeScreenRecorder (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FreeScreenRecorder (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
