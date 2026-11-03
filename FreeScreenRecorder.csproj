@@ -96,4 +96,20 @@
     <PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">False</PublishReadyToRun>
     <PublishTrimmed>False</PublishTrimmed>
   </PropertyGroup>
+
+  <!--
+    The WinUI XAML compiler emits the app PRI and compiled XAML (.xbf) files into
+    the build output, but the SDK does not copy them to the publish folder for
+    unpackaged self-contained apps. Without them the app crashes at startup with
+    a stowed exception (0xC000027B) while loading XAML.
+  -->
+  <Target Name="CopyWinUIXamlArtifactsToPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <WinUIXamlPublishArtifacts Include="$(TargetDir)$(AssemblyName).pri" />
+      <WinUIXamlPublishArtifacts Include="$(TargetDir)*.xbf" />
+    </ItemGroup>
+    <Copy SourceFiles="@(WinUIXamlPublishArtifacts)"
+          DestinationFolder="$(PublishDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
 </Project>
