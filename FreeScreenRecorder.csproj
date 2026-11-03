@@ -5,6 +5,15 @@
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>FreeScreenRecorder</RootNamespace>
     <AssemblyName>FreeScreenRecorder</AssemblyName>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyTitle>FreeScreen Recorder</AssemblyTitle>
+    <Product>FreeScreen Recorder</Product>
+    <Description>Free WinUI 3 screen recorder with system audio, cursor highlight, and click effects.</Description>
+    <Company>AppPublisher</Company>
+    <Copyright>Copyright (c) 2026 AppPublisher</Copyright>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Platforms>x64;x86;ARM64</Platforms>
@@ -31,6 +40,16 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\AppIcon.ico" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Assets\**\*"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Remove="Branding\**" />
+    <Content Remove="dist\**" />
+    <None Remove="Branding\**" />
+    <None Remove="dist\**" />
   </ItemGroup>
 
   <ItemGroup>

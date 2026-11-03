@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="Branding/mine/github-banner.png" alt="FreeScreen Recorder" width="100%">
+</p>
+
 # FreeScreen Recorder
 
 A WinUI 3 screen recorder for Windows. Record a selected monitor with system audio, a microphone, cursor highlight, and click-ring effects. An auto-hiding control bar appears when the mouse reaches the top edge and stays out of the recording.
@@ -48,6 +52,26 @@ Or build and launch manually:
 dotnet build FreeScreenRecorder.csproj -c Debug -p:Platform=x64
 .\bin\x64\Debug\net8.0-windows10.0.26100.0\win-x64\FreeScreenRecorder.exe
 ```
+
+## Build a distributable .exe
+
+`build.ps1` publishes a self-contained build (no .NET runtime needed on the target PC), creates a portable `.zip`, and compiles a Windows installer with Inno Setup when it is installed.
+
+```powershell
+.\build.ps1
+.\build.ps1 -Runtime win-arm64 -Version 1.2.0
+.\build.ps1 -BundleFfmpeg -SignCertificateThumbprint <SHA1_THUMBPRINT>
+```
+
+Or double-click / run `build.cmd` with the same arguments. Outputs land in `dist\`:
+
+- `FreeScreenRecorder-<version>-<runtime>\` — runnable app folder.
+- `FreeScreenRecorder-<version>-<runtime>.zip` — portable build.
+- `FreeScreenRecorder-<version>-<runtime>-Setup.exe` — installer (requires [Inno Setup 6](https://jrsoftware.org/isdl.php)).
+
+Pass `-FfmpegPath <path>` or `-BundleFfmpeg` to ship `ffmpeg.exe` next to the app. Pass `-SkipArchive` or `-SkipInstaller` to skip either output.
+
+For product naming, logo concepts, every icon size Windows needs, installer artwork, signing, and the release checklist, see [BRANDING.md](BRANDING.md).
 
 ## Usage
 

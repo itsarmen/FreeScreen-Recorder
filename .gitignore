@@ -8,7 +8,10 @@
 *.suo
 *.userosscache
 *.sln.docstates
-artifacts/
+
+# Distribution output
+dist/*
+!dist/.gitkeep
 
 # Build logs
 [Ll]og/
